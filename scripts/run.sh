@@ -30,3 +30,4 @@ done
 echo "[${STAMP}] Starting daemon..."
 # run apache httpd daemon
 httpd -D FOREGROUND
+sleep 3600
