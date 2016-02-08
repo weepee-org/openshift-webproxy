@@ -3,8 +3,7 @@ MAINTAINER Joeri van Dooren <ure@mororless.be>
 
 # https://pkgs.alpinelinux.org/packages?name=php%25&repo=all&arch=x86_64&maintainer=all
 RUN apk --update add apache2 apache2-proxy curl && rm -f /var/cache/apk/* && \
-curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
-mkdir /app && chown -R apache:apache /app && \
+mkdir /app && chown -R apache:apache /conf && \
 mkdir /run/apache2/ && \
 chmod a+rwx /run/apache2/
 
@@ -17,14 +16,14 @@ RUN mkdir /scripts/pre-exec.d && \
 mkdir /scripts/pre-init.d && \
 chmod -R 755 /scripts
 
-# Your app
-ADD app/index.php /app/index.php
+# Your proxy conf
+ADD conf/proxy.conf /conf/proxy.conf
 
 # Exposed Port
 EXPOSE 8080
 
-# VOLUME /app
-WORKDIR /app
+# VOLUME /conf
+WORKDIR /conf
 
 ENTRYPOINT ["/scripts/run.sh"]
 
