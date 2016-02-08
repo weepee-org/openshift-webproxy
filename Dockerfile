@@ -2,7 +2,7 @@ FROM gliderlabs/alpine
 MAINTAINER Joeri van Dooren <ure@mororless.be>
 
 # https://pkgs.alpinelinux.org/packages?name=php%25&repo=all&arch=x86_64&maintainer=all
-RUN apk --update add apache2 apache2-proxy curl && rm -f /var/cache/apk/* && \
+RUN apk --update add apache2 apache2-proxy apache2-proxy-html curl && rm -f /var/cache/apk/* && \
 mkdir /conf && chown -R apache:apache /conf && \
 mkdir /run/apache2/ && \
 chmod a+rwx /run/apache2/
