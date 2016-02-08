@@ -1,6 +1,6 @@
 # openshift-proxy
 
-Template for running a apache on a container based on alpine linux/openshift/docker.
+Template for running a proxy on a container based on apache on alpine linux/openshift/docker.
 
 ### Installation
 
@@ -37,7 +37,7 @@ use in your Dockerfile
 FROM weepee-registry/proxy
 
 # Your app
-ADD app /app
+ADD conf /conf
 ```
 
 #### Route.yml
