@@ -28,13 +28,13 @@ spec:
     dockerStrategy:
       from:
         kind: ImageStreamTag
-        name: proxy:latest
+        name: proxy-server:latest
         namespace: weepee-registry
     type: Docker
 ```
 use in your Dockerfile
 ```sh
-FROM weepee-registry/proxy
+FROM weepee-registry/proxy-server
 
 # Your app
 ADD conf /conf
