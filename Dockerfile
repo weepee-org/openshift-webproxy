@@ -5,7 +5,7 @@ MAINTAINER Joeri van Dooren <ure@mororless.be>
 RUN apk --update add apache2 apache2-proxy apache2-proxy-html apache2-ssl libxml2 curl && rm -f /var/cache/apk/* && \
 ln -s /usr/lib/libxml2.so.2 /usr/lib/libxml2.so && mkdir /conf && chown -R apache:apache /conf && \
 mkdir /run/apache2/ && \
-chmod a+rwx /run/apache2/
+chmod a+rwx /run/apache2/ /etc/ssl/apache2/ /etc/ssl/apache2/*
 
 # Apache config
 ADD httpd.conf /etc/apache2/httpd.conf
