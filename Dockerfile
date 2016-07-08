@@ -10,6 +10,9 @@ chmod a+rwx /run/apache2/
 # Apache config
 ADD httpd.conf /etc/apache2/httpd.conf
 
+# ssl conf
+ADD ssl.conf /etc/apache2/conf.d/ssl.conf
+
 # Run scripts
 ADD scripts/run.sh /scripts/run.sh
 RUN mkdir /scripts/pre-exec.d && \
